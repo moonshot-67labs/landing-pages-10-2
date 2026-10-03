@@ -1,0 +1,59 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": "",
+  "outputDirectory": ".",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/a",
+      "destination": "/"
+    },
+    {
+      "source": "/b",
+      "destination": "/lp-01"
+    },
+    {
+      "source": "/c",
+      "destination": "/lp-02"
+    },
+    {
+      "source": "/d",
+      "destination": "/lp-03"
+    },
+    {
+      "source": "/e",
+      "destination": "/contact"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/vid/:path*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
+    },
+    {
+      "source": "/img/:path*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        }
+      ]
+    }
+  ]
+}
